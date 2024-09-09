@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickStreet - Login y Registro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black flex flex-col justify-center items-center min-h-screen">
+    <!-- Navbar -->
+    <nav id="nav" class="w-full bg-black shadow-md">
+        <div class="flex items-center justify-between w-full max-w-screen-lg mx-auto p-4 md:flex md:justify-center text-slate-50">
+            <!-- Logo -->
+            <a href="./index.html" class="w-40">
+                <h3 class="font-gothic text-4xl text-center">KickStreet</h3>
+            </a>
+        </div>
+        <!-- Menú de navegación -->
+        <div class="flex justify-center mt-4">
+            <ul class="flex gap-8">
+                <li><a href="#" class="hover:underline text-white">Sneakers</a></li>
+                <li><a href="#" class="hover:underline text-white">Clothes</a></li>
+                <li><a href="#" class="hover:underline text-white">Stores</a></li>
+            </ul>
+        </div>
+        <!-- Menú móvil -->
+        <div class="fixed inset-0 bg-black bg-opacity-90 p-8 md:hidden hidden transition-opacity duration-300 ease-in-out transform scale-0" id="nav-menu">
+            <div class="flex justify-between items-center mb-8">
+                <a href="#" class="w-40">
+                    <img class="w-full h-auto" src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/f06d7301a0e51d1ada45994de485c8872270c4c6/marketing-hero-section/assets/logo.svg" alt="Open Props logo" />
+                </a>
+                <button class="w-8 h-8" aria-label="Close Menu" onclick="document.getElementById('nav-menu').classList.toggle('hidden')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="flex flex-col gap-6">
+                <li><a href="#" class="hover:underline">Who we are</a></li>
+                <li><a href="#" class="hover:underline">Sneakers</a></li>
+                <li><a href="#" class="hover:underline">Clothes</a></li>
+                <li><a href="#" class="hover:underline">Stores</a></li>
+            </ul>
+            <div class="mt-8 flex flex-col gap-4">
+                <a href="#" class="px-4 py-3 bg-purple-700 text-white rounded-full text-center">Get started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulario de Login y Registro -->
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 mt-8">
+        <!-- Login Form -->
+        <div id="loginForm" class="show">
+            <h2 class="text-2xl font-gothic text-gray-900 text-center">Login</h2>
+            <form class="mt-8 space-y-4">
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input id="email" name="email" type="email" required class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input id="password" name="password" type="password" required class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black">
+                </div>
+                <button type="button" href="./index.html" class="w-full bg-black font-gothic text-white py-2 rounded-md hover:bg-gray-800 transition" onclick="window.location.href='./index.html'">Login</button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                ¿You are not registered? 
+                <a href="#" id="toggleToRegister" class="text-black font-medium hover:underline">Sign Up</a>
+            </p>
+        </div>
+        
+        <!-- Register Form -->
+        <div id="registerForm" class="hidden">
+            <h2 class="text-2xl font-gothic text-gray-900 text-center">Register</h2>
+            <form class="mt-8 space-y-4">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Name the user</label>
+                    <input id="username" name="username" type="text" required class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black">
+                </div>
+                <div>
+                    <label for="emailReg" class="block text-sm font-medium text-gray-700">Mail</label>
+                    <input id="emailReg" name="emailReg" type="email" required class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black">
+                </div>
+                <div>
+                    <label for="passwordReg" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input id="passwordReg" name="passwordReg" type="password" required class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black">
+                </div>
+                <button type="submit" href="./index.html" class="w-full bg-black text-white py-2 font-gothic rounded-md hover:bg-gray-800 transition">Register</button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                ¿Already have an account? 
+                <a href="#" id="toggleToLogin" class="text-black font-medium hover:underline">Sign In</a>
+            </p>
+        </div>
+    </div>
+    <div class="relative h-full w-400 bg-purple-100">
+        <div
+            class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[400px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]">
+        </div>
+        <div
+            class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[400px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]">
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const toggleToRegister = document.getElementById('toggleToRegister');
+        const toggleToLogin = document.getElementById('toggleToLogin');
+
+        toggleToRegister.addEventListener('click', () => {
+            loginForm.classList.remove('show');
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+            registerForm.classList.add('show');
+        });
+
+        toggleToLogin.addEventListener('click', () => {
+            registerForm.classList.remove('show');
+            registerForm.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            loginForm.classList.add('show');
+        });
+    </script>
+</body>
+
+</html>

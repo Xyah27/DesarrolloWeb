@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es"  class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickStreet</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-sans min-h-screen antialiased">
+    <nav id="nav" class="flex justify-center items-center">
+        <div class="flex items-center justify-between w-full max-w-screen-lg p-4 md:grid md:grid-cols-3 md:px-8">
+            <a href="./index.html" class="w-40">
+                <h3 class="font-gothic text-4xl">KickStreet</h3>
+            </a>
+            <div class="hidden md:flex md:col-span-2 md:justify-between md:items-center">
+                <ul class="flex gap-8">
+                    <li><a href="#whoweare" class="hover:underline">Who we are</a></li>
+                    <li><a href="./sneakers.html" class="hover:underline">Sneakers</a></li>
+                    <li><a href="./error.html" class="hover:underline">Clothes</a></li>
+                    <li><a href="./error.html" class="hover:underline">Stores</a></li>
+                </ul>
+                <div class="flex gap-4">
+                    <a href="./login.html" class="mt-2 inline-block px-8 py-4 bg-purple-800 text-white rounded-full">Join the club</a>
+                </div>
+            </div>
+            <button
+                class="md:hidden w-8 h-8"
+                aria-label="Open Menu"
+                onclick="nav.classList.add('open')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="fixed inset-0 bg-black bg-opacity-90 p-8 md:hidden hidden transition-opacity duration-300 ease-in-out transform scale-0" id="nav-menu">
+            <div class="flex justify-between items-center mb-8">
+                <a href="#" class="w-40">
+                    <img class="w-full h-auto" src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/f06d7301a0e51d1ada45994de485c8872270c4c6/marketing-hero-section/assets/logo.svg" alt="Open Props logo"/>
+                </a>
+                <button class="w-8 h-8" aria-label="Close Menu" onclick="nav.classList.remove('open')">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="flex flex-col gap-6">
+              <li><a href="./error.html" class="hover:underline">Who we are</a></li>
+              <li><a href="./error.html" class="hover:underline">Sneakers</a></li>
+              <li><a href="./error.html" class="hover:underline">Clothes</a></li>
+              <li><a href="./error.html" class="hover:underline">Stores</a></li>
+            </ul>
+            <div class="mt-8 flex flex-col gap-4">
+                <a href="#" class="px-4 py-3 bg-purple-700 text-white rounded-full text-center">Get started</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+<!-- component -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+<div x-data="{ cartOpen: false , isOpen: false }" class="bg-white">
+    <header>
+        <div class="container mx-auto px-6 py-3">
+        </div>
+    </header>
+    <main class="my-8">
+        <div class="container mx-auto px-6">
+            <div class="md:flex md:items-center">
+                <div class="w-full h-64 md:w-1/2 lg:h-96">
+                    <img class="h-full w-full rounded-md object-cover max-w-lg mx-auto" src="https://images.unsplash.com/photo-1578262825743-a4e402caab76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80" alt="Nike Air">
+                </div>
+                <div class="w-full max-w-lg mx-auto mt-5 md:ml-8 md:mt-0 md:w-1/2">
+                    <h3 class="text-gray-700 uppercase text-lg">Nike Air</h3>
+                    <span class="text-gray-500 mt-3">$125</span>
+                    <hr class="my-3">
+                    <div class="mt-2">
+                        <label class="text-gray-700 text-sm" for="count">Count:</label>
+                        <div class="flex items-center mt-1">
+                            <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                                <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </button>
+                            <span class="text-gray-700 text-lg mx-2">20</span>
+                            <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                                <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <label class="text-gray-700 text-sm" for="count">Color:</label>
+                        <div class="flex items-center mt-1">
+                            <button class="h-5 w-5 rounded-full bg-blue-600 border-2 border-blue-200 mr-2 focus:outline-none"></button>
+                            <button class="h-5 w-5 rounded-full bg-teal-600 mr-2 focus:outline-none"></button>
+                            <button class="h-5 w-5 rounded-full bg-pink-600 mr-2 focus:outline-none"></button>
+                        </div>
+                    </div>
+                    <div class="flex items-center mt-6">
+                        <button class="px-8 py-2 bg-indigo-600 text-white text-sm font-medium rounded hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">Order Now</button>
+                        <button class="mx-2 text-gray-600 border rounded-md p-2 hover:bg-gray-200 focus:outline-none">
+                            <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16">
+                <h3 class="text-gray-600 text-2xl font-medium">More Products</h3>
+                <div class="font-bold py-4 mx-auto lg:max-w-6xl md:max-w-4xl max-sm:max-w-md">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6 gap-12">
+              
+                      <div class="bg-white p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-white before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                        <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                          <img src="./img/airjordan3retrocementgrey.webp" alt="product1"
+                            class="h-full w-full object-contain" />
+                        </div>
+              
+                        <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/11 p-3 rounded-lg transition-all duration-300">
+                          <div class="text-center">
+                            <h3 class="text-base font-bold text-gray-800">Air Jordan 3 Retro</h3>
+                            <h2 class="text-base font-bold text-gray-800">Cement Grey</h2>
+                            <h4 class="text-lg text-purple-800 font-bold mt-2">$250.00</h4>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                        <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                          <img src="./img/adidasgazelleindoorcoreblack.webp" alt="product1"
+                            class="h-full w-full object-contain" />
+                        </div>
+              
+                        <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+                          <div class="text-center">
+                            <h3 class="text-base font-bold text-gray-800">Adidas gazelle indoor</h3>
+                            <h2 class="text-base font-bold text-gray-800">Core black</h2>
+                            <h4 class="text-lg text-purple-800 font-bold mt-2">$150.00</h4>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                        <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                          <img src="./img/airjordan1highogsatinbred.webp" alt="product1"
+                            class="h-full w-full object-contain" />
+                        </div>
+              
+                        <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+                          <div class="text-center">
+                            <h3 class="text-base font-bold text-gray-800">Air Jordan 1 High OG</h3>
+                            <h2 class="text-base font-bold text-gray-800">Satin Bred</h2>
+                            <h4 class="text-lg text-purple-800 font-bold mt-2">$280.00</h4>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                        <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                          <img src="./img/airjordan4retrobredreimagined.webp" alt="product1"
+                            class="h-full w-full object-contain" />
+                        </div>
+              
+                        <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+                          <div class="text-center">
+                            <h3 class="text-base font-bold text-gray-800">Air Jordan 4 retro</h3>
+                            <h2 class="text-base font-bold text-gray-800">Bred Reimagined</h2>
+                            <h4 class="text-lg text-purple-800 font-bold mt-2">$200.00</h4>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                        <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                          <img src="./img/airjordan4retrowhitethunder.webp" alt="product1"
+                            class="h-full w-full object-contain" />
+                        </div>
+              
+                        <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+                          <div class="text-center">
+                            <h3 class="text-base font-bold text-gray-800">Air Jordan 4 retro</h3>
+                            <h2 class="text-base font-bold text-gray-800">White Thunder</h2>
+                            <h4 class="text-lg text-purple-800 font-bold mt-2">$180.00</h4>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                        <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                          <img src="./img/airjordan5retrosebungurdy.webp" alt="product1"
+                            class="h-full w-full object-contain" />
+                        </div>
+              
+                        <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+                          <div class="text-center">
+                            <h3 class="text-base font-bold text-gray-800">Air Jordan retro 5 SE</h3>
+                            <h2 class="text-base font-bold text-gray-800">Bungurdy</h2>
+                            <h4 class="text-lg text-purple-800 font-bold mt-2">$230.00</h4>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                        <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                          <img src="./img/nikedunklowsbproxthereskateboards.webp" alt="product1"
+                            class="h-full w-full object-contain" />
+                        </div>
+              
+                        <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+                          <div class="text-center">
+                            <h3 class="text-base font-bold text-gray-800">Nike Dunk Low SB pro</h3>
+                            <h2 class="text-base font-bold text-gray-800">there skateboards</h2>
+                            <h4 class="text-lg text-purple-800 font-bold mt-2">$170.00</h4>
+                          </div>
+                        </div>
+                      </div>
+                          <div class="bg-gray-100 p-3 rounded-lg group overflow-hidden cursor-pointer relative z-50 hover:before:bg-black before:absolute before:inset-0 before:opacity-20 before:transition-all">
+                            <div class="w-full h-[300px] overflow-hidden mx-auto aspect-w-16 aspect-h-8">
+                              <img src="./img/womenadidassambalightpurplefloral.webp" alt="product1"
+                                class="h-full w-full object-contain" />
+                            </div>
+                  
+                            <div class="absolute mx-auto left-0 right-0 -bottom-80 group-hover:bottom-2 bg-white w-11/12 p-3 rounded-lg transition-all duration-300">
+                              <div class="text-center">
+                                <h3 class="text-base font-bold text-gray-800">Adidas Samba</h3>
+                                <h2 class="text-base font-bold text-gray-800">Light Purple Floral</h2>
+                                <h4 class="text-lg text-purple-800 font-bold mt-2">$150.00</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    </main>
+
+    <footer class="bg-gray-200">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-500 hover:text-gray-400">Brand</a>
+            <p class="py-2 text-gray-500 sm:py-0">All rights reserved</p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
